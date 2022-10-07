@@ -1,0 +1,30 @@
+--------user1
+browser=chrome
+url=https://nxtgenaiacademy.com/demo-site/
+userfname=rajat
+userlname=shukla
+gender=Male
+adress=1/1155 m vishal khand
+StreetAddress=gomti nagar
+apt=1155M
+city=lucknow
+state=India
+email=rajat.shukla.212@gmail.com
+DemoDate=10/12/2022
+mobilenumber=1234567890
+code=99
+
+---------user2
+
+userfname1=rajat123
+userlname1=shukla123
+gender1=Male
+adress1=1/1155 m vishal khand123
+StreetAddress1=gomti nagar  123
+apt1=1155M   123
+city1=lucknow   123
+state1=India
+email1=rajat.shukla.212@gmail.com
+DemoDate1=10/12/2022
+mobilenumber1=1234567890
+code1=99
