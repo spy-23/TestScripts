@@ -29,8 +29,10 @@ public class RadioAndCheckboxes {
 	
 	public void clickGender(String Gender) {
 		if(Gender.contains("male")) {
+			//male_radio_button.clear();
 			male_radio_button.click();
 		}else if(Gender.contains("female")) {
+			//female_radio_button.clear();
 			female_radio_button.click();
 		}else{
 			System.out.println("Gender is wrong");

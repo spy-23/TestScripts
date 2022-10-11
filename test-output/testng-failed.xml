@@ -6,7 +6,8 @@
       <class name="execution.Execute">
         <methods>
           <include name="beforetest"/>
-          <include name="test1"/>
+          <include name="test1" invocation-numbers="1 2"/>
+          <include name="aftertest"/>
         </methods>
       </class> <!-- execution.Execute -->
     </classes>

@@ -20,6 +20,7 @@ public class InputBoxes {
 	}
 	
 	public void enterFirst_Name(String FirstName) {
+		first_name_inputbox.clear();
 		first_name_inputbox.sendKeys(FirstName);
 	}
 	
@@ -32,6 +33,7 @@ public class InputBoxes {
 	}
 	
 	public void enterLast_Name(String LastName) {
+		last_name_inputbox.clear();
 		last_name_inputbox.sendKeys(LastName);
 	}
 	
@@ -116,7 +118,7 @@ public class InputBoxes {
 	}
 	
 	public void enterMobileNumber(String MobileNumber) {
-		email_inputbox.sendKeys(MobileNumber);
+		mobile_inputbox.sendKeys(MobileNumber);
 	}
 	
 	//QUERY
