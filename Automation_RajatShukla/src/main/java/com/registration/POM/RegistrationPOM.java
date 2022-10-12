@@ -8,10 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+import lombok.Getter;
+@Getter
 public class RegistrationPOM {
 	private WebDriver ldriver;
 
@@ -55,62 +58,110 @@ public class RegistrationPOM {
 		ldriver.quit();
 	}
 
+	@FindAll({ @FindBy(xpath = "//input[@name='vfb-5']") })
+	private WebElement txtuserfname;
+	@FindAll({ @FindBy(xpath = "//input[@name='vfb-7']") })
+	private WebElement txtuserlname;
+	@FindAll({ @FindBy(xpath = "//*[@id='vfb-8-1']") })
+	private WebElement txtusergender;
+	@FindAll({ @FindBy(xpath = "//*[@id='vfb-13-address']") })
+	private WebElement txtuseraddress;
+	@FindAll({ @FindBy(xpath = "//*[@id='vfb-13-address']") })
+	private WebElement txtuserstreetaddress;
+	@FindAll({ @FindBy(xpath = "//*[@id='vfb-13-city']") })
+	private WebElement txtuserapt;
+	@FindAll({ @FindBy(id = "vfb-13-zip") })
+	private WebElement txtusercity;
+	@FindAll({ @FindBy(xpath = "//*[@name='vfb-13[country]']") })
+	private WebElement txtusercountry;
+	@FindAll({ @FindBy(id = "vfb-14") })
+	private WebElement txtuseremail;
+	@FindAll({ @FindBy(id = "vfb-18") })
+	private WebElement txtuserdate;
+	@FindAll({ @FindBy(id = "vfb-19") })
+	private WebElement txtusermobile;
+	@FindAll({ @FindBy(id = "vfb-23") })
+	private WebElement txtuserquery;
+	@FindAll({ @FindBy(id = "vfb-3") })
+	private WebElement txtuserverificationcode;
+	@FindAll({ @FindBy(id = "vfb-4") })
+	private WebElement txtusersubmit;
+
 	public void namefield(String userfname) {
-		ldriver.findElement(By.xpath("//input[@name='vfb-5']")).sendKeys(userfname);
+		txtuserfname.clear();
+		txtuserfname.sendKeys(userfname);
 	}
 
 	public void lastfield(String userlname) {
-		ldriver.findElement(By.xpath("//input[@name='vfb-7']")).sendKeys(userlname);
+		txtuserlname.click();
+		txtuserlname.sendKeys(userlname);
 	}
 
 	public void genderselect(String gender) {
 		if (gender.contentEquals("Male")) {
-			ldriver.findElement(By.id("vfb-8-1")).click();
+			txtusergender.click();
 		} else {
-			ldriver.findElement(By.id("vfb-8-2")).click();
+			txtusergender.click();
 		}
 	}
 
 	public void adressfield(String adress) {
-		ldriver.findElement(By.id("vfb-13-address")).sendKeys(adress);
+		txtuseraddress.clear();
+		txtuseraddress.sendKeys(adress);
 	}
 
 	public void streetadressfield(String StreetAddress) {
-		ldriver.findElement(By.id("vfb-13-address-2")).sendKeys(StreetAddress);
+		txtuserstreetaddress.clear();
+		txtuserstreetaddress.sendKeys(StreetAddress);
 	}
 
 	public void aptfield(String apt) {
-		ldriver.findElement(By.id("vfb-13-city")).sendKeys(apt);
+		txtuserapt.clear();
+		txtuserapt.sendKeys(apt);
 	}
 
 	public void cityfield(String city) {
-		ldriver.findElement(By.id("vfb-13-zip")).sendKeys(city);
+		txtusercity.clear();
+		txtusercity.sendKeys(city);
 	}
 
 	public void countryfield(String state) {
-		List<WebElement> Statelist = ldriver.findElements(By.id("vfb-13-country"));
+		txtusercountry.click();
+		List<WebElement> Statelist = ldriver.findElements(By.xpath("//*[@name='vfb-13[country]']/option"));
 		for (WebElement li : Statelist) {
 			if (li.getText().contains(state)) {
 				li.click();
-
+				break;
 			}
 		}
 	}
 
 	public void emailfield(String email) {
-		ldriver.findElement(By.id("vfb-14")).sendKeys(email);
+		txtuseremail.clear();
+		txtuseremail.sendKeys(email);
 	}
 
 	public void datefield(String demoDate) {
-		ldriver.findElement(By.id("vfb-18")).sendKeys(demoDate);
+		txtuserdate.clear();
+		txtuserdate.sendKeys(demoDate);
 	}
 
 	public void mobilefield(String mobilenumber) {
-		ldriver.findElement(By.id("vfb-19")).sendKeys(mobilenumber);
+		txtusermobile.clear();
+		txtusermobile.sendKeys(mobilenumber);
 	}
 
-	public void codefield(String code) {
-		ldriver.findElement(By.id("vfb-3")).sendKeys(code);
-		ldriver.findElement(By.id("vfb-4")).click();
+	public void querymessage(String query) {
+		txtuserquery.clear();
+		txtuserquery.sendKeys(query);
+	}
+
+	public void verificationcodefield(String code) {
+		txtuserverificationcode.clear();
+		txtuserverificationcode.sendKeys(code);
+	}
+
+	public void submitbutton() {
+		txtusersubmit.click();
 	}
 }
